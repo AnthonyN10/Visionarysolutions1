@@ -1,10 +1,9 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 const HomePage = () => {
   return (
-    <div className="min-h-screen bg-[#020b43] bg-[url('/lovable-uploads/46a5a9cb-fccc-48b1-8117-7f7c2d5f69b8.png')] bg-cover bg-center">
+    <div className="min-h-screen bg-[#020b43] bg-[url('/lovable-uploads/3f5239a1-b4c7-46aa-9439-faabc0478907.png')] bg-cover bg-center">
       <div className="min-h-[calc(100vh-80px)] flex flex-col">
         <div className="flex-1 flex flex-col justify-center items-end pr-8 md:pr-16 lg:pr-24">
           <div className="text-right">
