@@ -9,7 +9,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex items-center justify-between px-8 py-4 lg:px-16">
+    <nav className="flex items-center justify-between px-8 py-4 lg:px-16 fixed top-0 left-0 right-0 z-50 bg-[#020b43]/80 backdrop-blur-sm">
       <Link to="/" className="text-white text-3xl font-bold">
         VISIONARY SOLUTIONS
       </Link>
