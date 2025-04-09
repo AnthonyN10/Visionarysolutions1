@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 const HomePage = () => {
   return (
-    <div className="min-h-screen bg-[#020b43] bg-[url('/background.png')] bg-cover bg-center">
+    <div className="min-h-screen bg-[#020b43] bg-[url('/BACKROUND.png')] bg-cover bg-center">
       <div className="min-h-[calc(100vh-80px)] flex flex-col">
         <div className="flex-1 flex flex-col justify-center items-end pr-8 md:pr-16 lg:pr-24">
           <div className="text-right">
