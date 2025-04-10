@@ -20,7 +20,7 @@ const services = [
   {
     title: "CREATIVE STRATEGY",
     description: "Innovative digital strategies to grow your business.",
-    image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1"
+    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5"
   },
   {
     title: "WEBSITE MAINTENANCE",
@@ -30,7 +30,7 @@ const services = [
   {
     title: "WEBSITE REVAMPS",
     description: "Refresh and modernize your existing website.",
-    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e"
+    image: "https://images.unsplash.com/photo-1498936178812-4b2e558d2937"
   },
   {
     title: "PHOTOGRAPHY",
@@ -45,7 +45,7 @@ const services = [
   {
     title: "STARTUP",
     description: "Complete digital setup for new businesses.",
-    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c"
+    image: "https://images.unsplash.com/photo-1518877593221-1f28583780b4"
   }
 ];
 
