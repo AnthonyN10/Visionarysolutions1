@@ -9,9 +9,9 @@ interface ServiceCardProps {
 
 export const ServiceCard = ({ title, description, image }: ServiceCardProps) => {
   return (
-    <Card className="overflow-hidden border-none shadow-lg">
+    <Card className="overflow-hidden border-none shadow-lg h-full">
       <div className="flex flex-col h-full">
-        <div className="bg-white p-4 flex justify-center items-center aspect-square">
+        <div className="bg-white p-4 flex-shrink-0 flex justify-center items-center aspect-square">
           <img 
             src={image} 
             alt={title} 
@@ -20,7 +20,7 @@ export const ServiceCard = ({ title, description, image }: ServiceCardProps) => 
           />
         </div>
         
-        <div className="bg-[#0a1657] text-white text-center p-4">
+        <div className="bg-[#0a1657] text-white text-center p-4 flex-grow flex flex-col justify-center">
           <h3 className="font-bold text-xl">{title}</h3>
           <p className="text-sm mt-1 opacity-90">{description}</p>
         </div>
