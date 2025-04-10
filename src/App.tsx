@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -15,7 +14,6 @@ import { useEffect, useRef } from "react";
 
 const queryClient = new QueryClient();
 
-// ScrollToSection component to handle smooth scrolling to sections
 const ScrollToSection = () => {
   const location = useLocation();
   const homeRef = useRef<HTMLDivElement>(null);
@@ -24,7 +22,6 @@ const ScrollToSection = () => {
   const contactRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Map paths to refs
     const refMap: Record<string, React.RefObject<HTMLDivElement>> = {
       "/": homeRef,
       "/about": aboutRef,
@@ -32,7 +29,6 @@ const ScrollToSection = () => {
       "/contact": contactRef,
     };
 
-    // Scroll to the section based on the current path
     const ref = refMap[location.pathname];
     if (ref && ref.current) {
       ref.current.scrollIntoView({ behavior: "smooth" });
@@ -41,16 +37,16 @@ const ScrollToSection = () => {
 
   return (
     <main className="flex-1">
-      <div ref={homeRef} id="home" className="scroll-section">
+      <div ref={homeRef} id="home">
         <HomePage />
       </div>
-      <div ref={aboutRef} id="about" className="scroll-section">
+      <div ref={aboutRef} id="about">
         <AboutPage />
       </div>
-      <div ref={servicesRef} id="services" className="scroll-section">
+      <div ref={servicesRef} id="services">
         <ServicesPage />
       </div>
-      <div ref={contactRef} id="contact" className="scroll-section">
+      <div ref={contactRef} id="contact">
         <ContactPage />
       </div>
     </main>
