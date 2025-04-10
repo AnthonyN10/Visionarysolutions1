@@ -10,6 +10,18 @@ import { Textarea } from "@/components/ui/textarea";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { toast } from "@/hooks/use-toast";
 
+const ServicesPage = () => {
+  return (
+    <div className="min-h-screen bg-white py-16">
+      <div className="container mx-auto px-4">
+        <h1 className="text-4xl md:text-5xl font-bold text-[#0a1657] text-center mb-12">
+          CONTACT US
+        </h1>
+    
+      </div>
+    </div>
+  );
+};
 
 const formSchema = z.object({
   firstName: z.string().min(2, { message: "First name is required" }),
@@ -18,10 +30,6 @@ const formSchema = z.object({
   websiteType: z.string().min(1, { message: "Please select a website type" }),
   information: z.string().optional(),
 });
-
-<h2 className="text-2xl font-bold text-[#0a1657] text-center mb-6">
-            CONTACT US
-          </h2>
 
 type FormValues = z.infer<typeof formSchema>;
 
@@ -64,8 +72,6 @@ const ContactPage = () => {
           </h1>
           
           <div className="border-t border-[#0a1657]/20 mb-8 mt-4"></div>
-          
-          
           
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
@@ -183,16 +189,5 @@ const ContactPage = () => {
   );
 };
 
-const ServicesPage = () => {
-  return (
-    <div className="min-h-screen bg-white py-16">
-      <div className="container mx-auto px-4">
-        <h1 className="text-4xl md:text-5xl font-bold text-[#0a1657] text-center mb-12">
-          CONTACT US
-        </h1>
-    
-      </div>
-    </div>
-  );
-};
+
 export default ContactPage;
