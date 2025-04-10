@@ -5,7 +5,7 @@ const AboutPage = () => {
   return (
     <div className="min-h-screen bg-white py-16">
       <div className="container mx-auto px-4">
-        <h1 className="text-4xl md:text-5xl font-bold text-[#0a1657] mb-12">ABOUT US</h1>
+        <h1 className="text-4xl md:text-5xl font-bold text-[#0a1657] mb-12 text-center">ABOUT US</h1>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div>

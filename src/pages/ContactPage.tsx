@@ -61,6 +61,10 @@ const ContactPage = () => {
           
           <div className="border-t border-[#0a1657]/20 mb-8 mt-4"></div>
           
+          <h2 className="text-2xl font-bold text-[#0a1657] text-center mb-6">
+            CONTACT US
+          </h2>
+          
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
