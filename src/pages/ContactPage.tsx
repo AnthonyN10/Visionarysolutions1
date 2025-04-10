@@ -181,4 +181,16 @@ const ContactPage = () => {
   );
 };
 
+const ServicesPage = () => {
+  return (
+    <div className="min-h-screen bg-white py-16">
+      <div className="container mx-auto px-4">
+        <h1 className="text-4xl md:text-5xl font-bold text-[#0a1657] text-center mb-12">
+          CONTACT US
+        </h1>
+    
+      </div>
+    </div>
+  );
+};
 export default ContactPage;
