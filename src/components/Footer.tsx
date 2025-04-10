@@ -14,20 +14,20 @@ const Footer = () => {
           </div>
           <div className="flex items-center">
             <Mail className="mr-2" size={20} />
-            <span>- VisionarySolutions@gmail.com</span>
+            <span>- info@visionarysolutions.co.za</span>
           </div>
         </div>
         
         <div>
           <h2 className="text-2xl font-bold mb-4">SOCIALS</h2>
           <div className="flex gap-4">
-            <Link to="https://instagram.com" target="_blank" className="bg-gradient-to-tr from-purple-500 via-pink-500 to-orange-500 p-2 rounded-md">
+            <Link to="https://www.instagram.com/visionary_solutions1?igsh=MXZnaTlhZjBsend4Zw%3D%3D&utm_source=qr " target="_blank" className="bg-gradient-to-tr from-purple-500 via-pink-500 to-orange-500 p-2 rounded-md">
               <Instagram size={24} />
             </Link>
             <Link to="https://facebook.com" target="_blank" className="bg-blue-600 p-2 rounded-md">
               <Facebook size={24} />
             </Link>
-            <Link to="https://whatsapp.com" target="_blank" className="bg-green-500 p-2 rounded-md">
+            <Link to="https://wa.me/27817098779?text=Welcome%20to%20Visionary%20Solutions%2C%20how%20can%20I%20help%20you?" target="_blank" className="bg-green-500 p-2 rounded-md">
               <Phone size={24} />
             </Link>
           </div>
