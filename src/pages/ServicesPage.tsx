@@ -10,42 +10,42 @@ const services = [
   {
     title: "WEBSITE DEVELOPMENT",
     description: "Custom website design and development tailored to your needs.",
-    image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7"
+    image: "2.svg"
   },
   {
     title: "BRAND BUILDING",
     description: "Strategic brand development to establish your market presence.",
-    image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81"
+    image: "3.svg"
   },
   {
     title: "CREATIVE STRATEGY",
     description: "Innovative digital strategies to grow your business.",
-    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5"
+    image: "4.svg"
   },
   {
     title: "WEBSITE MAINTENANCE",
     description: "Regular updates and maintenance for optimal performance.",
-    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6"
+    image: "5.svg"
   },
   {
     title: "WEBSITE REVAMPS",
     description: "Refresh and modernize your existing website.",
-    image: "https://images.unsplash.com/photo-1498936178812-4b2e558d2937"
+    image: "6.svg"
   },
   {
     title: "PHOTOGRAPHY",
     description: "Professional photography services for your digital content.",
-    image: "https://images.unsplash.com/photo-1473091534298-04dcbce3278c"
+    image: "7.svg"
   },
   {
     title: "SEO MANAGEMENT",
     description: "Search engine optimization to improve your online visibility.",
-    image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b"
+    image: "8.svg"
   },
   {
     title: "STARTUP",
     description: "Complete digital setup for new businesses.",
-    image: "https://images.unsplash.com/photo-1518877593221-1f28583780b4"
+    image: "9.svg"
   }
 ];
 
