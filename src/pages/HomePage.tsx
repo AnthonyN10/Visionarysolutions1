@@ -19,13 +19,13 @@ const HomePage = () => {
           </div>
         </div>
         
-        {/* <div className="bg-[#020b43]/70 backdrop-blur-sm py-6 text-center"> */}
-          <h2 className="text-white text-xl md:text-2xl lg:text-3xl font-semibold text-center">
+        <div className="py-6 text-center">
+          <h2 className="text-white text-xl md:text-2xl lg:text-3xl font-semibold">
             YOUR VISION WITH OUR SOLUTIONS
           </h2>
         </div>
       </div>
-    // </div>
+    </div>
   );
 };
 

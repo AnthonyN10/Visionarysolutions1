@@ -12,7 +12,12 @@ export const ServiceCard = ({ title, description, image }: ServiceCardProps) => 
     <Card className="overflow-hidden border-none shadow-lg">
       <div className="flex flex-col h-full">
         <div className="bg-white p-4 flex justify-center items-center aspect-square">
-          <img src={image} alt={title} className="max-h-full object-contain" />
+          <img 
+            src={image} 
+            alt={title} 
+            className="max-h-full object-cover w-full h-full" 
+            loading="lazy"
+          />
         </div>
         
         <div className="bg-[#0a1657] text-white text-center p-4">

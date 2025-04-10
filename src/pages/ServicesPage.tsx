@@ -1,52 +1,51 @@
 
-import { Card, CardContent } from "@/components/ui/card";
 import { ServiceCard } from "@/components/ServiceCard";
 
 const services = [
   {
     title: "PROFILE CREATION",
     description: "Professional profile setup for businesses and individuals.",
-    image: "/lovable-uploads/2309855d-9ffc-40a7-87d1-5808108852e4.png"
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158"
   },
   {
     title: "WEBSITE DEVELOPMENT",
     description: "Custom website design and development tailored to your needs.",
-    image: "/lovable-uploads/2309855d-9ffc-40a7-87d1-5808108852e4.png"
+    image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7"
   },
   {
     title: "BRAND BUILDING",
     description: "Strategic brand development to establish your market presence.",
-    image: "/lovable-uploads/2309855d-9ffc-40a7-87d1-5808108852e4.png"
+    image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81"
   },
   {
     title: "CREATIVE STRATEGY",
     description: "Innovative digital strategies to grow your business.",
-    image: "/lovable-uploads/2309855d-9ffc-40a7-87d1-5808108852e4.png"
+    image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1"
   },
   {
     title: "WEBSITE MAINTENANCE",
     description: "Regular updates and maintenance for optimal performance.",
-    image: "/lovable-uploads/2309855d-9ffc-40a7-87d1-5808108852e4.png"
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6"
   },
   {
     title: "WEBSITE REVAMPS",
     description: "Refresh and modernize your existing website.",
-    image: "/lovable-uploads/2309855d-9ffc-40a7-87d1-5808108852e4.png"
+    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e"
   },
   {
     title: "PHOTOGRAPHY",
     description: "Professional photography services for your digital content.",
-    image: "/lovable-uploads/2309855d-9ffc-40a7-87d1-5808108852e4.png"
+    image: "https://images.unsplash.com/photo-1473091534298-04dcbce3278c"
   },
   {
     title: "SEO MANAGEMENT",
     description: "Search engine optimization to improve your online visibility.",
-    image: "/lovable-uploads/2309855d-9ffc-40a7-87d1-5808108852e4.png"
+    image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b"
   },
   {
     title: "STARTUP",
     description: "Complete digital setup for new businesses.",
-    image: "/lovable-uploads/2309855d-9ffc-40a7-87d1-5808108852e4.png"
+    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c"
   }
 ];
 
