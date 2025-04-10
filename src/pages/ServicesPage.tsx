@@ -5,7 +5,7 @@ const services = [
   {
     title: "PROFILE CREATION",
     description: "Professional profile setup for businesses and individuals.",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158"
+    image: "1.svg"
   },
   {
     title: "WEBSITE DEVELOPMENT",
