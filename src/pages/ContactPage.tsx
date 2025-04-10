@@ -19,6 +19,10 @@ const formSchema = z.object({
   information: z.string().optional(),
 });
 
+<h2 className="text-2xl font-bold text-[#0a1657] text-center mb-6">
+            CONTACT US
+          </h2>
+          
 type FormValues = z.infer<typeof formSchema>;
 
 const ContactPage = () => {
