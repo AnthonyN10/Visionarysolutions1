@@ -172,7 +172,7 @@ const ContactPage = () => {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="text-[#0a1657] font-medium">
-                      MORE INFORMATION ABOUT THE WEBSITE or SERVICE REQUESTED
+                      MORE INFORMATION ABOUT THE WEBSITE OR SERVICE REQUESTED
                     </FormLabel>
                     <FormControl>
                       <Textarea 
