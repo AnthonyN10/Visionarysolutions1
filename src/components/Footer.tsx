@@ -1,6 +1,7 @@
 
 import { Link } from "react-router-dom";
-import { Phone, Mail, Instagram, Facebook } from "lucide-react";
+import { Mail, Instagram, Facebook } from "lucide-react";
+import { MessageSquare } from "lucide-react"; // Adding WhatsApp-like icon
 
 const Footer = () => {
   return (
@@ -9,12 +10,12 @@ const Footer = () => {
         <div className="mb-6 md:mb-0">
           <h2 className="text-2xl font-bold mb-4">CONTACT</h2>
           <div className="flex items-center mb-3">
-            <Phone className="mr-2" size={20} />
-            <span>- 0817098779</span>
+            <MessageSquare className="mr-2" size={20} />
+            <a href="tel:0817098779" className="hover:underline">- 0817098779</a>
           </div>
           <div className="flex items-center">
             <Mail className="mr-2" size={20} />
-            <span>- info@visionarysolutions.co.za</span>
+            <a href="mailto:info@visionarysolutions.co.za" className="hover:underline">- info@visionarysolutions.co.za</a>
           </div>
         </div>
         
@@ -28,7 +29,7 @@ const Footer = () => {
               <Facebook size={24} />
             </Link>
             <Link to="https://wa.me/27817098779?text=Welcome%20to%20Visionary%20Solutions%2C%20how%20can%20I%20help%20you?" target="_blank" className="bg-green-500 p-2 rounded-md">
-              <Phone size={24} />
+              <MessageSquare size={24} />
             </Link>
           </div>
         </div>

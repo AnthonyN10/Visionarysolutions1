@@ -10,8 +10,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { toast } from "@/hooks/use-toast";
 
-
-
 const formSchema = z.object({
   firstName: z.string().min(2, { message: "First name is required" }),
   lastName: z.string().min(2, { message: "Last name is required" }),
@@ -39,26 +37,53 @@ const ContactPage = () => {
   const onSubmit = async (data: FormValues) => {
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    
-    console.log("Form submitted:", data);
-    toast({
-      title: "Quote request submitted!",
-      description: "We'll get back to you as soon as possible.",
-    });
-    
-    form.reset();
-    setIsSubmitting(false);
+    try {
+      // Send email using a simple form submission to formsubmit.co service
+      const formData = new FormData();
+      formData.append("firstName", data.firstName);
+      formData.append("lastName", data.lastName);
+      formData.append("email", data.email);
+      formData.append("websiteType", data.websiteType);
+      formData.append("information", data.information || "");
+      
+      const response = await fetch("https://formsubmit.co/info@visionarysolutions.co.za", {
+        method: "POST",
+        body: formData,
+      });
+      
+      if (!response.ok) {
+        throw new Error("Form submission failed");
+      }
+      
+      toast({
+        title: "Quote request submitted!",
+        description: "We'll get back to you as soon as possible.",
+      });
+      
+      form.reset();
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast({
+        title: "Submission failed",
+        description: "There was an error sending your request. Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <div className="min-h-screen bg-white py-16">
       <div className="container mx-auto px-4 max-w-3xl">
+        <h1 className="text-3xl md:text-4xl font-bold text-[#0a1657] text-center mb-10">
+          CONTACT US
+        </h1>
+        
         <div className="bg-[#e6eeff] rounded-lg p-8">
-          <h1 className="text-3xl md:text-4xl font-bold text-[#0a1657] text-center mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-[#0a1657] text-center mb-8">
             REQUEST A QUOTE
-          </h1>
+          </h2>
           
           <div className="border-t border-[#0a1657]/20 mb-8 mt-4"></div>
           
@@ -177,6 +202,5 @@ const ContactPage = () => {
     </div>
   );
 };
-
 
 export default ContactPage;
