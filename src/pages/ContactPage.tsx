@@ -158,7 +158,7 @@ const ContactPage = () => {
                         <SelectItem value="ecommerce">E-commerce Website</SelectItem>
                         <SelectItem value="portfolio">Portfolio Website</SelectItem>
                         <SelectItem value="blog">Blog Website</SelectItem>
-                        <SelectItem value="other">Other</SelectItem>
+                        <SelectItem value="other">Other Services</SelectItem>
                       </SelectContent>
                     </Select>
                     <FormMessage />
@@ -172,7 +172,7 @@ const ContactPage = () => {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="text-[#0a1657] font-medium">
-                      MORE INFORMATION ABOUT THE WEBSITE
+                      MORE INFORMATION ABOUT THE WEBSITE or SERVICE REQUESTED
                     </FormLabel>
                     <FormControl>
                       <Textarea 
