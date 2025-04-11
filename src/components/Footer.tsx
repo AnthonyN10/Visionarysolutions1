@@ -1,6 +1,6 @@
 
 import { Link } from "react-router-dom";
-import { Mail, Instagram, Facebook, Phone, MessageSquare } from "lucide-react";
+import { Mail, Instagram, Facebook, Phone, WhatsApp } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -28,7 +28,7 @@ const Footer = () => {
               <Facebook size={24} />
             </Link>
             <Link to="https://wa.me/27817098779?text=Welcome%20to%20Visionary%20Solutions%2C%20how%20can%20I%20help%20you?" target="_blank" className="bg-green-500 p-2 rounded-md hover:scale-110 transition-transform">
-              <MessageSquare size={24} />
+              <WhatsApp size={24} />
             </Link>
           </div>
         </div>

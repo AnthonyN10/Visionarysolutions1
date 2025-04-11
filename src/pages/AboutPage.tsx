@@ -8,8 +8,8 @@ const AboutPage = () => {
         <h1 className="text-4xl md:text-5xl font-bold text-[#0a1657] mb-12 text-center">ABOUT US</h1>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div>
-            <Card className="shadow-lg border-none">
+          <div className="animate-fade-in" style={{ animationDelay: '0.1s' }}>
+            <Card className="shadow-lg border-none hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
               <CardContent className="p-6">
                 <h2 className="text-2xl font-bold text-[#0a1657] mb-4">Our Mission</h2>
                 <p className="text-gray-700">
@@ -20,8 +20,8 @@ const AboutPage = () => {
             </Card>
           </div>
           
-          <div>
-            <Card className="shadow-lg border-none">
+          <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            <Card className="shadow-lg border-none hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
               <CardContent className="p-6">
                 <h2 className="text-2xl font-bold text-[#0a1657] mb-4">Our Approach</h2>
                 <p className="text-gray-700">
@@ -32,8 +32,8 @@ const AboutPage = () => {
             </Card>
           </div>
           
-          <div className="md:col-span-2">
-            <Card className="shadow-lg border-none">
+          <div className="md:col-span-2 animate-fade-in" style={{ animationDelay: '0.3s' }}>
+            <Card className="shadow-lg border-none hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
               <CardContent className="p-6 text-center">
                 <h2 className="text-2xl font-bold text-[#0a1657] mb-4">Why Choose Us</h2>
                 <ul className="list-disc inline-block text-left text-gray-700 space-y-2">
@@ -53,4 +53,3 @@ const AboutPage = () => {
 };
 
 export default AboutPage;
-
