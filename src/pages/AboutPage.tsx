@@ -1,7 +1,17 @@
 
 import { Card, CardContent } from "@/components/ui/card";
+import { useEffect } from "react";
 
 const AboutPage = () => {
+  useEffect(() => {
+    // Preload any images used in this component
+    const preloadImages = () => {
+      // Add any images that need preloading here
+    };
+    
+    preloadImages();
+  }, []);
+
   return (
     <div className="min-h-screen bg-white py-16">
       <div className="container mx-auto px-4">

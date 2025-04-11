@@ -1,11 +1,21 @@
 
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { useEffect } from "react";
 
 const HomePage = () => {
+  useEffect(() => {
+    // Preload background image
+    const img = new Image();
+    img.src = '/BACKROUND.png';
+  }, []);
+
   return (
-    <div className="min-h-screen bg-[#020b43] bg-[url('/BACKROUND.png')] bg-cover bg-center">
-      <div className="min-h-[calc(100vh-80px)] flex flex-col">
+    <div className="min-h-screen bg-[#020b43] bg-[url('/BACKROUND.png')] bg-cover bg-center relative">
+      {/* Preload overlay to hide image loading */}
+      <div className="absolute inset-0 bg-[#020b43] animate-fadeOut z-10"></div>
+      
+      <div className="min-h-[calc(100vh-80px)] flex flex-col relative z-0">
         <div className="flex-1 flex flex-col justify-center items-end pr-8 md:pr-16 lg:pr-24">
           <div className="text-right">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">

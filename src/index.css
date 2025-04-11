@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -108,4 +109,25 @@
 .scroll-section {
   min-height: 100vh;
   scroll-margin-top: 80px;
+}
+
+/* Animation for image loading */
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.animate-fadeOut {
+  animation: fadeOut 1s ease-out forwards;
+  animation-delay: 0.5s;
+}
+
+/* Add preloading for critical images */
+body::after {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  z-index: -1;
+  content: url('/BACKROUND.png');
 }
