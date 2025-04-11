@@ -34,9 +34,9 @@ const AboutPage = () => {
           
           <div className="md:col-span-2">
             <Card className="shadow-lg border-none">
-              <CardContent className="p-6">
+              <CardContent className="p-6 text-center">
                 <h2 className="text-2xl font-bold text-[#0a1657] mb-4">Why Choose Us</h2>
-                <ul className="list-disc pl-5 text-gray-700 space-y-2">
+                <ul className="list-disc inline-block text-left text-gray-700 space-y-2">
                   <li>Expert team with years of experience in web development</li>
                   <li>Personalized solutions tailored to your specific requirements</li>
                   <li>Commitment to quality and attention to detail</li>
@@ -53,3 +53,4 @@ const AboutPage = () => {
 };
 
 export default AboutPage;
+
