@@ -1,8 +1,9 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
@@ -62,8 +63,12 @@ const App = () => (
         <div className="flex flex-col min-h-screen bg-[#020b43]">
           <Navbar />
           <Routes>
-            <Route path="*" element={<ScrollToSection />} />
+            <Route path="/" element={<ScrollToSection />} />
+            <Route path="/about" element={<Navigate to="/#about" replace />} />
+            <Route path="/services" element={<Navigate to="/#services" replace />} />
+            <Route path="/contact" element={<Navigate to="/#contact" replace />} />
             <Route path="/not-found" element={<NotFound />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />
         </div>
