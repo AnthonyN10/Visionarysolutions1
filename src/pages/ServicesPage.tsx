@@ -51,13 +51,13 @@ const services = [
 
 const ServicesPage = () => {
   return (
-    <div className="min-h-screen bg-white py-16">
+    <div className="min-h-screen bg-white py-16 pt-24 md:pt-28">
       <div className="container mx-auto px-4">
-        <h1 className="text-4xl md:text-5xl font-bold text-[#0a1657] text-center mb-12">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0a1657] text-center mb-8 md:mb-12">
           OUR SERVICES
         </h1>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {services.map((service, index) => (
             <div key={index} className="animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
               <ServiceCard 

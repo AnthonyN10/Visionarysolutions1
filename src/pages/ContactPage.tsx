@@ -74,22 +74,22 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white py-16">
+    <div className="min-h-screen bg-white py-16 pt-24 md:pt-28">
       <div className="container mx-auto px-4 max-w-3xl">
-        <h1 className="text-4xl md:text-5xl font-bold text-[#0a1657] text-center mb-10">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0a1657] text-center mb-6 md:mb-10">
           CONTACT US
         </h1>
         
-        <div className="bg-[#e6eeff] rounded-lg p-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#0a1657] text-center mb-8">
+        <div className="bg-[#e6eeff] rounded-lg p-4 sm:p-6 md:p-8">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#0a1657] text-center mb-6 md:mb-8">
             REQUEST A QUOTE
           </h2>
           
-          <div className="border-t border-[#0a1657]/20 mb-8 mt-4"></div>
+          <div className="border-t border-[#0a1657]/20 mb-6 md:mb-8 mt-4"></div>
           
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 md:space-y-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                 <FormField
                   control={form.control}
                   name="firstName"
@@ -190,7 +190,7 @@ const ContactPage = () => {
                 <Button 
                   type="submit" 
                   disabled={isSubmitting}
-                  className="bg-[#0a1657] hover:bg-[#0a1657]/90 text-white font-bold py-2 px-8 rounded-full"
+                  className="bg-[#0a1657] hover:bg-[#0a1657]/90 text-white font-bold py-2 px-6 sm:px-8 rounded-full"
                 >
                   {isSubmitting ? "Submitting..." : "SUBMIT"}
                 </Button>
