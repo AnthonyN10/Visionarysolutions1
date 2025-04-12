@@ -22,7 +22,7 @@ const HomePage = () => {
               BUILD YOUR<br />ONLINE<br />PRESENCE
             </h1>
             <Link to="/contact">
-              <Button className="bg-white hover:bg-white/90 text-[#020b43] font-bold rounded-full px-6 py-5 text-base md:px-8 md:py-6 md:text-lg">
+              <Button className= "bg-white hover:bg-white/90 text-[#020b43] font-bold rounded-full px-6 py-5 text-base md:px-8 md:py-6 md:text-lg">
                 GET STARTED
               </Button>
             </Link>
