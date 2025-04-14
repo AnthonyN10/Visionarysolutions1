@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -23,16 +22,14 @@ const ScrollToSection = () => {
   const contactRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const refMap: Record<string, React.RefObject<HTMLDivElement>> = {
-      "/": homeRef,
-      "/about": aboutRef,
-      "/services": servicesRef,
-      "/contact": contactRef,
-    };
-
-    const ref = refMap[location.pathname];
-    if (ref && ref.current) {
-      ref.current.scrollIntoView({ behavior: "smooth" });
+    if (location.hash) {
+      const id = location.hash.substring(1);
+      const element = document.getElementById(id);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+      }
     }
   }, [location]);
 

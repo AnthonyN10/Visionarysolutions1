@@ -4,9 +4,23 @@ import HeroSection from "@/components/HeroSection";
 
 const HomePage = () => {
   const scrollToContact = () => {
+    // Add a console log to debug
+    console.log("Scrolling to contact section");
+    
+    // Try first with getElementById
     const contactSection = document.getElementById('contact');
     if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
+      contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      console.log("Found contact section by ID");
+    } else {
+      // If not found by ID, try querySelector as fallback
+      const contactSectionAlt = document.querySelector('[id="contact"]');
+      if (contactSectionAlt) {
+        console.log("Found contact section by querySelector");
+        (contactSectionAlt as HTMLElement).scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        console.log("Contact section not found");
+      }
     }
   };
 

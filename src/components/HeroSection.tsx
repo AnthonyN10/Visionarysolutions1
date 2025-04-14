@@ -6,6 +6,12 @@ type HeroSectionProps = {
 };
 
 const HeroSection = ({ onGetStarted }: HeroSectionProps) => {
+  const handleGetStarted = (e: React.MouseEvent) => {
+    e.preventDefault(); // Prevent default behavior
+    console.log("Get Started button clicked");
+    onGetStarted();
+  };
+
   return (
     <div className="min-h-[calc(100vh-80px)] flex flex-col relative z-0 pt-20 md:pt-24">
       <div className="flex-1 flex flex-col justify-center items-center md:items-end px-4 md:pr-8 lg:pr-24">
@@ -14,8 +20,9 @@ const HeroSection = ({ onGetStarted }: HeroSectionProps) => {
             BUILD YOUR<br />ONLINE<br />PRESENCE
           </h1>
           <Button 
-            onClick={onGetStarted}
-            className="bg-white hover:bg-white/90 text-[#020b43] font-bold rounded-full px-6 py-5 text-base md:px-8 md:py-6 md:text-lg"
+            onClick={handleGetStarted}
+            type="button"
+            className="bg-white hover:bg-white/90 text-[#020b43] font-bold rounded-full px-6 py-5 text-base md:px-8 md:py-6 md:text-lg cursor-pointer"
           >
             GET STARTED
           </Button>

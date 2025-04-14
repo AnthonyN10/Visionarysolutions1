@@ -103,11 +103,17 @@
   
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Add padding for fixed header */
   }
 }
 
 .scroll-section {
   min-height: 100vh;
+  scroll-margin-top: 80px;
+}
+
+/* Make sure sections have proper scroll margins */
+#home, #about, #services, #contact {
   scroll-margin-top: 80px;
 }
 
@@ -130,4 +136,11 @@ body::after {
   overflow: hidden;
   z-index: -1;
   content: url('/BACKROUND.png');
+}
+
+/* Ensure buttons are clickable */
+button {
+  position: relative;
+  z-index: 5;
+  cursor: pointer;
 }
