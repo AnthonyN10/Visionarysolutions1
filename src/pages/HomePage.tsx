@@ -14,6 +14,13 @@ const HomePage = () => {
     };
   }, []);
 
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-[#020b43] bg-[url('/BACKROUND.png')] bg-cover bg-center relative">
       {/* Preload overlay to hide image loading */}
@@ -25,11 +32,12 @@ const HomePage = () => {
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
               BUILD YOUR<br />ONLINE<br />PRESENCE
             </h1>
-            <a href="#contact">
-              <Button className="bg-white hover:bg-white/90 text-[#020b43] font-bold rounded-full px-6 py-5 text-base md:px-8 md:py-6 md:text-lg">
-                GET STARTED
-              </Button>
-            </a>
+            <Button 
+              onClick={scrollToContact}
+              className="bg-white hover:bg-white/90 text-[#020b43] font-bold rounded-full px-6 py-5 text-base md:px-8 md:py-6 md:text-lg"
+            >
+              GET STARTED
+            </Button>
           </div>
         </div>
         
