@@ -33,12 +33,19 @@ const ScrollToSection = () => {
         console.log("Found element by ID:", id);
         // Delay scrolling slightly to ensure DOM is ready
         setTimeout(() => {
-          const offsetTop = element.offsetTop;
-          console.log("Scrolling to offset:", offsetTop);
-          window.scrollTo({
-            top: offsetTop - 80, // Adjust for header height
-            behavior: "smooth"
-          });
+          // Try using scrollIntoView first
+          try {
+            element.scrollIntoView({ behavior: "smooth", block: "start" });
+            console.log("Used scrollIntoView for element:", id);
+          } catch (err) {
+            // Fallback to window.scrollTo
+            const offsetTop = element.offsetTop;
+            console.log("Fallback: Scrolling to offset:", offsetTop);
+            window.scrollTo({
+              top: offsetTop - 80, // Adjust for header height
+              behavior: "smooth"
+            });
+          }
         }, 200);
       } else {
         console.log("Element not found for hash:", id);

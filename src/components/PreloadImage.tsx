@@ -21,8 +21,10 @@ const PreloadImage = ({ src, children }: PreloadImageProps) => {
   return (
     <div className="relative">
       {/* Preload overlay to hide image loading */}
-      <div className={`absolute inset-0 bg-[#020b43] ${imageLoaded ? 'animate-fadeOut' : ''} z-10`}></div>
-      {children}
+      <div className={`absolute inset-0 bg-[#020b43] ${imageLoaded ? 'animate-fadeOut' : ''} z-0`}></div>
+      <div className="relative z-10">
+        {children}
+      </div>
     </div>
   );
 };

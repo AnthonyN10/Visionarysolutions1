@@ -142,12 +142,28 @@ body::after {
 /* Ensure buttons are clickable */
 button {
   position: relative !important;
-  z-index: 50 !important; /* Use a higher z-index */
+  z-index: 100 !important; /* Use a higher z-index */
   cursor: pointer !important;
+  pointer-events: auto !important;
+}
+
+/* Fix for empty clickable areas */
+a, button, [role="button"] {
+  pointer-events: auto !important;
 }
 
 /* Section target markers for better navigation */
 .section-target {
   position: relative;
   scroll-margin-top: 80px;
+}
+
+/* Fix for overlays potentially blocking clicks */
+.overlay, [class*="overlay"], [class*="backdrop"] {
+  pointer-events: none !important;
+}
+
+/* Ensure content remains clickable */
+.overlay *, [class*="overlay"] *, [class*="backdrop"] * {
+  pointer-events: auto !important;
 }
