@@ -9,7 +9,12 @@ const HeroSection = ({ onGetStarted }: HeroSectionProps) => {
   const handleGetStarted = (e: React.MouseEvent) => {
     e.preventDefault(); // Prevent default behavior
     console.log("Get Started button clicked");
-    onGetStarted();
+    // Call the function directly without any wrappers
+    if (typeof onGetStarted === 'function') {
+      onGetStarted();
+    } else {
+      console.error("onGetStarted is not a function", onGetStarted);
+    }
   };
 
   return (
@@ -22,7 +27,7 @@ const HeroSection = ({ onGetStarted }: HeroSectionProps) => {
           <Button 
             onClick={handleGetStarted}
             type="button"
-            className="bg-white hover:bg-white/90 text-[#020b43] font-bold rounded-full px-6 py-5 text-base md:px-8 md:py-6 md:text-lg cursor-pointer"
+            className="bg-white hover:bg-white/90 text-[#020b43] font-bold rounded-full px-6 py-5 text-base md:px-8 md:py-6 md:text-lg cursor-pointer z-20"
           >
             GET STARTED
           </Button>

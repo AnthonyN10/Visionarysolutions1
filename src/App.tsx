@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -22,29 +23,41 @@ const ScrollToSection = () => {
   const contactRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Handle hash-based navigation
     if (location.hash) {
+      console.log("Location hash detected:", location.hash);
       const id = location.hash.substring(1);
       const element = document.getElementById(id);
+      
       if (element) {
+        console.log("Found element by ID:", id);
+        // Delay scrolling slightly to ensure DOM is ready
         setTimeout(() => {
-          element.scrollIntoView({ behavior: "smooth" });
-        }, 100);
+          const offsetTop = element.offsetTop;
+          console.log("Scrolling to offset:", offsetTop);
+          window.scrollTo({
+            top: offsetTop - 80, // Adjust for header height
+            behavior: "smooth"
+          });
+        }, 200);
+      } else {
+        console.log("Element not found for hash:", id);
       }
     }
   }, [location]);
 
   return (
     <main className="flex-1">
-      <div ref={homeRef} id="home">
+      <div ref={homeRef} id="home" className="section-target">
         <HomePage />
       </div>
-      <div ref={aboutRef} id="about">
+      <div ref={aboutRef} id="about" className="section-target">
         <AboutPage />
       </div>
-      <div ref={servicesRef} id="services">
+      <div ref={servicesRef} id="services" className="section-target">
         <ServicesPage />
       </div>
-      <div ref={contactRef} id="contact">
+      <div ref={contactRef} id="contact" className="section-target">
         <ContactPage />
       </div>
     </main>
