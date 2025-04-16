@@ -24,7 +24,7 @@ const Footer = () => {
             <Link to="https://www.instagram.com/visionary_solutions1?igsh=MXZnaTlhZjBsend4Zw%3D%3D&utm_source=qr " target="_blank" className="bg-gradient-to-tr from-purple-500 via-pink-500 to-orange-500 p-2 rounded-md hover:scale-110 transition-transform">
               <Instagram size={24} />
             </Link>
-            <Link to="https://facebook.com" target="_blank" className="bg-blue-600 p-2 rounded-md hover:scale-110 transition-transform">
+            <Link to="https://www.facebook.com/profile.php?id=61575130387076" target="_blank" className="bg-blue-600 p-2 rounded-md hover:scale-110 transition-transform">
               <Facebook size={24} />
             </Link>
             <Link to="https://wa.me/27817098779?text=Welcome%20to%20Visionary%20Solutions%2C%20how%20can%20I%20help%20you?" target="_blank" className="bg-green-500 p-2 rounded-md hover:scale-110 transition-transform">
