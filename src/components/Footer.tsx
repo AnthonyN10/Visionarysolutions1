@@ -21,7 +21,7 @@ const Footer = () => {
         <div>
           <h2 className="text-2xl font-bold mb-4">SOCIALS</h2>
           <div className="flex gap-4">
-            <Link to="https://www.instagram.com/visionary_solutions1?igsh=MXZnaTlhZjBsend4Zw%3D%3D&utm_source=qr " target="_blank" className="bg-gradient-to-tr from-purple-500 via-pink-500 to-orange-500 p-2 rounded-md hover:scale-110 transition-transform">
+            <Link to="https://www.instagram.com/visionarysolutions1/" target="_blank" className="bg-gradient-to-tr from-purple-500 via-pink-500 to-orange-500 p-2 rounded-md hover:scale-110 transition-transform">
               <Instagram size={24} />
             </Link>
             <Link to="https://www.facebook.com/profile.php?id=61575130387076" target="_blank" className="bg-blue-600 p-2 rounded-md hover:scale-110 transition-transform">
