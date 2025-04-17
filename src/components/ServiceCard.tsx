@@ -18,14 +18,14 @@ export const ServiceCard = ({ title, description, image, detailedInfo }: Service
   };
 
   return (
-    <div className="relative w-full h-full perspective" onClick={handleFlip}>
+    <div className="relative w-full h-[300px] perspective" onClick={handleFlip}>
       <div
-        className={`w-full h-full transition-all duration-500 preserve-3d cursor-pointer ${
+        className={`relative w-full h-full transition-all duration-500 preserve-3d ${
           isFlipped ? "rotate-y-180" : ""
         }`}
       >
         {/* Front of card */}
-        <Card className="absolute w-full h-full backface-hidden overflow-hidden border-none shadow-lg group transition-all duration-300 hover:shadow-2xl transform hover:-translate-y-2">
+        <Card className="absolute inset-0 w-full h-full backface-hidden border-none shadow-lg group transition-all duration-300 hover:shadow-2xl transform hover:-translate-y-2">
           <div className="flex flex-col h-full">
             <div className="bg-white p-3 sm:p-4 flex-shrink-0 flex justify-center items-center aspect-square">
               <img 
@@ -45,13 +45,16 @@ export const ServiceCard = ({ title, description, image, detailedInfo }: Service
         </Card>
 
         {/* Back of card */}
-        <Card className="absolute w-full h-full backface-hidden overflow-hidden rotate-y-180 border-none shadow-lg">
+        <Card className="absolute inset-0 w-full h-full backface-hidden rotate-y-180 border-none shadow-lg">
           <div className="flex flex-col h-full bg-[#0c1d75] text-white p-6">
             <h3 className="font-bold text-xl mb-4">{title}</h3>
             <p className="text-sm flex-grow">{detailedInfo}</p>
             <button 
-              onClick={handleFlip}
               className="mt-4 text-sm flex items-center justify-center gap-2 opacity-80 hover:opacity-100"
+              onClick={(e) => {
+                e.stopPropagation();
+                setIsFlipped(false);
+              }}
             >
               <RotateCw className="w-4 h-4" />
               Flip back
