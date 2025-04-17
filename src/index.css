@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -166,4 +165,21 @@ a, button, [role="button"] {
 /* Ensure content remains clickable */
 .overlay *, [class*="overlay"] *, [class*="backdrop"] * {
   pointer-events: auto !important;
+}
+
+/* Card flip utilities */
+.perspective {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
 }
