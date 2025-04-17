@@ -18,17 +18,14 @@ export const ServiceCard = ({ title, description, image, detailedInfo }: Service
   };
 
   return (
-    <div className="relative w-full h-[300px] perspective">
+    <div className="relative w-full h-[300px] perspective" onClick={handleFlip}>
       <div
         className={`relative w-full h-full transition-all duration-500 preserve-3d ${
           isFlipped ? "rotate-y-180" : ""
         }`}
       >
         {/* Front of card */}
-        <Card 
-          className="absolute inset-0 w-full h-full backface-hidden border-none shadow-lg group transition-all duration-300 hover:shadow-2xl transform hover:-translate-y-2"
-          onClick={handleFlip}
-        >
+        <Card className="absolute inset-0 w-full h-full backface-hidden border-none shadow-lg group transition-all duration-300 hover:shadow-2xl transform hover:-translate-y-2">
           <div className="flex flex-col h-full">
             <div className="bg-white p-3 sm:p-4 flex-shrink-0 flex justify-center items-center aspect-square">
               <img 
