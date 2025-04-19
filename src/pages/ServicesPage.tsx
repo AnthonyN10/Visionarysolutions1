@@ -57,16 +57,13 @@ const ServicesPage = () => {
           OUR SERVICES
         </h1>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-14 lg:gap-16">
           {services.map((service, index) => (
             <div 
               key={index} 
-              className="animate-fade-in p-4 bg-gray-50 rounded-lg" 
+              className="animate-fade-in mb-6" 
               style={{ 
                 animationDelay: `${index * 0.1}s`,
-                display: 'flex',
-                flexDirection: 'column',
-                height: '100%'
               }}
             >
               <ServiceCard 
