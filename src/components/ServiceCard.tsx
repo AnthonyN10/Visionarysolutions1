@@ -18,11 +18,11 @@ export const ServiceCard = ({ title, image, detailedInfo }: ServiceCardProps) =>
   };
 
   // Adjust card height based on device
-  const cardHeight = isMobile ? "250px" : "300px";
+  const cardHeight = isMobile ? "200px" : "250px";
 
   return (
     <div 
-      className="relative w-full perspective" 
+      className="relative w-full perspective mb-6" 
       style={{ height: cardHeight }} 
       onClick={handleFlip}
     >
