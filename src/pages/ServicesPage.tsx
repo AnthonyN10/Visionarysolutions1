@@ -6,7 +6,7 @@ const services = [
     title: "PROFILE CREATION",
     description: "Professional profile setup for businesses and individuals.",
     image: "1.svg",
-    detailedInfo: "Our profile creation service includes comprehensive social media presence setup, brand voice development, and content strategy planning. We ensure your profiles are optimized for maximum engagement and professional presentation across all platforms."
+    // detailedInfo: "Our profile creation service includes comprehensive social media presence setup, brand voice development, and content strategy planning. We ensure your profiles are optimized for maximum engagement and professional presentation across all platforms."
   },
   {
     title: "WEBSITE DEVELOPMENT",
