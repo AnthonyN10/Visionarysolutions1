@@ -62,7 +62,7 @@ export const ServiceCard = ({ title, image, detailedInfo }: ServiceCardProps) =>
                   setIsFlipped(false);
                 }}
               >
-                Back to Front
+                BACK TO FRONT
               </button>
             </div>
           </div>
