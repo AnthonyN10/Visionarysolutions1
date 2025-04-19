@@ -5,12 +5,11 @@ import { RotateCw } from "lucide-react";
 
 interface ServiceCardProps {
   title: string;
-  // description: string;
   image: string;
   detailedInfo: string;
 }
 
-export const ServiceCard = ({ title, /*description,*/ image, detailedInfo }: ServiceCardProps) => {
+export const ServiceCard = ({ title, image, detailedInfo }: ServiceCardProps) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
   const handleFlip = () => {
@@ -27,7 +26,7 @@ export const ServiceCard = ({ title, /*description,*/ image, detailedInfo }: Ser
         {/* Front of card */}
         <Card className="absolute inset-0 w-full h-full backface-hidden border-none shadow-lg group transition-all duration-300 hover:shadow-2xl transform hover:-translate-y-2">
           <div className="flex flex-col h-full">
-            <div className="bg-white p-3 sm:p-4 flex-shrink-0 flex justify-center items-center aspect-square">
+            <div className="bg-white p-3 sm:p-4 flex-grow flex justify-center items-center">
               <img 
                 src={image} 
                 alt={title} 
@@ -36,9 +35,8 @@ export const ServiceCard = ({ title, /*description,*/ image, detailedInfo }: Ser
               />
             </div>
             
-            <div className="bg-[#0a1657] text-white text-center p-3 sm:p-4 flex-grow flex flex-col justify-center group-hover:bg-[#0c1d75] transition-colors duration-300">
-              <h3 className="font-bold text-lg sm:text-xl mb-1">{title}</h3>
-            
+            <div className="bg-[#0a1657] text-white text-center p-3 sm:p-4 flex-shrink-0 group-hover:bg-[#0c1d75] transition-colors duration-300">
+              <h3 className="font-bold text-lg sm:text-xl">{title}</h3>
               <RotateCw className="w-5 h-5 mx-auto mt-2 opacity-70" />
             </div>
           </div>
@@ -46,19 +44,21 @@ export const ServiceCard = ({ title, /*description,*/ image, detailedInfo }: Ser
 
         {/* Back of card */}
         <Card className="absolute inset-0 w-full h-full backface-hidden rotate-y-180 border-none shadow-lg">
-          <div className="flex flex-col h-full bg-[#0c1d75] text-white p-6">
-            <h3 className="font-bold text-xl mb-4">{title}</h3>
-            <p className="text-sm flex-grow overflow-y-auto">{detailedInfo}</p>
-            <button 
-              className="mt-4 text-sm flex items-center justify-center gap-2 opacity-80 hover:opacity-100"
-              onClick={(e) => {
-                e.stopPropagation();
-                setIsFlipped(false);
-              }}
-            >
-              <RotateCw className="w-4 h-4" />
-              Flip back
-            </button>
+          <div className="flex flex-col h-full bg-[#0c1d75] text-white">
+            <div className="p-6 flex flex-col h-full">
+              <h3 className="font-bold text-xl mb-4">{title}</h3>
+              <p className="text-sm flex-grow overflow-y-auto">{detailedInfo}</p>
+              <button 
+                className="mt-4 text-sm flex items-center justify-center gap-2 opacity-80 hover:opacity-100"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setIsFlipped(false);
+                }}
+              >
+                <RotateCw className="w-4 h-4" />
+                Flip back
+              </button>
+            </div>
           </div>
         </Card>
       </div>
