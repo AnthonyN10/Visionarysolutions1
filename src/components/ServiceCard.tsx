@@ -37,7 +37,7 @@ export const ServiceCard = ({ title, description, image, detailedInfo }: Service
             </div>
             
             <div className="bg-[#0a1657] text-white text-center p-3 sm:p-4 flex-grow flex flex-col justify-center group-hover:bg-[#0c1d75] transition-colors duration-300">
-              <h3 className="font-bold text-lg sm:text-xl">{title}</h3>
+              <h3 className="font-bold text-lg sm:text-xl mb-1">{title}</h3>
               <p className="text-xs sm:text-sm mt-1 opacity-90">{description}</p>
               <RotateCw className="w-5 h-5 mx-auto mt-2 opacity-70" />
             </div>

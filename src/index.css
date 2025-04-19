@@ -118,15 +118,15 @@
   position: relative; /* Ensure proper positioning */
 }
 
-/* Animation for image loading */
+/* Animation for image loading - Adjusted for faster fadeout */
 @keyframes fadeOut {
   0% { opacity: 1; }
   100% { opacity: 0; }
 }
 
 .animate-fadeOut {
-  animation: fadeOut 1s ease-out forwards;
-  animation-delay: 0.5s;
+  animation: fadeOut 0.6s ease-out forwards;
+  animation-delay: 0.2s; /* Reduced delay for faster appearance */
 }
 
 /* Add preloading for critical images */

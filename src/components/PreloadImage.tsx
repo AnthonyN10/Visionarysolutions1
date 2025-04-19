@@ -10,12 +10,26 @@ const PreloadImage = ({ src, children }: PreloadImageProps) => {
   const [imageLoaded, setImageLoaded] = useState(false);
 
   useEffect(() => {
-    // Preload background image
+    // Check if image is already loaded in cache
     const img = new Image();
     img.src = src;
-    img.onload = () => {
+    
+    if (img.complete) {
+      // Image is already cached
       setImageLoaded(true);
-    };
+    } else {
+      // Wait for image to load
+      img.onload = () => {
+        setImageLoaded(true);
+      };
+    }
+    
+    // Set a fallback timeout to ensure the overlay doesn't stay indefinitely
+    const timer = setTimeout(() => {
+      setImageLoaded(true);
+    }, 1000);
+    
+    return () => clearTimeout(timer);
   }, [src]);
 
   return (
