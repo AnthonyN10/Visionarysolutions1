@@ -1,6 +1,7 @@
 
 import { Card } from "@/components/ui/card";
 import { useState } from "react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface ServiceCardProps {
   title: string;
@@ -10,13 +11,21 @@ interface ServiceCardProps {
 
 export const ServiceCard = ({ title, image, detailedInfo }: ServiceCardProps) => {
   const [isFlipped, setIsFlipped] = useState(false);
+  const isMobile = useIsMobile();
 
   const handleFlip = () => {
     setIsFlipped(!isFlipped);
   };
 
+  // Adjust card height based on device
+  const cardHeight = isMobile ? "250px" : "300px";
+
   return (
-    <div className="relative w-full h-[300px] perspective" onClick={handleFlip}>
+    <div 
+      className="relative w-full perspective" 
+      style={{ height: cardHeight }} 
+      onClick={handleFlip}
+    >
       <div
         className={`relative w-full h-full transition-all duration-500 preserve-3d ${
           isFlipped ? "rotate-y-180" : ""
