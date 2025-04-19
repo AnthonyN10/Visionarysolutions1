@@ -48,7 +48,7 @@ export const ServiceCard = ({ title, description, image, detailedInfo }: Service
         <Card className="absolute inset-0 w-full h-full backface-hidden rotate-y-180 border-none shadow-lg">
           <div className="flex flex-col h-full bg-[#0c1d75] text-white p-6">
             <h3 className="font-bold text-xl mb-4">{title}</h3>
-            <p className="text-sm flex-grow">{detailedInfo}</p>
+            <p className="text-sm flex-grow overflow-y-auto">{detailedInfo}</p>
             <button 
               className="mt-4 text-sm flex items-center justify-center gap-2 opacity-80 hover:opacity-100"
               onClick={(e) => {
