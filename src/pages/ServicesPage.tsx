@@ -10,49 +10,49 @@ const services = [
   },
   {
     title: "WEBSITE DEVELOPMENT",
-    description: "Custom website design and development tailored to your needs.",
+    //description: "Custom website design and development tailored to your needs.",
     image: "2.svg",
     detailedInfo: "From concept to deployment, we create responsive, modern websites using the latest technologies. Our development process includes UI/UX design, mobile optimization, SEO implementation, and comprehensive testing."
   },
   {
     title: "BRAND BUILDING",
-    description: "Strategic brand development to establish your market presence.",
+   // description: "Strategic brand development to establish your market presence.",
     image: "3.svg",
     detailedInfo: "We help develop your brand identity through logo design, color schemes, typography, and brand guidelines. Our approach ensures consistency across all platforms while building recognition and trust."
   },
   {
     title: "CREATIVE STRATEGY",
-    description: "Innovative digital strategies to grow your business.",
+    //description: "Innovative digital strategies to grow your business.",
     image: "4.svg",
     detailedInfo: "Our creative strategy service provides data-driven marketing plans, content calendars, audience targeting, and engagement strategies to help your business stand out in the digital landscape."
   },
   {
     title: "WEBSITE MAINTENANCE",
-    description: "Regular updates and maintenance for optimal performance.",
+    //description: "Regular updates and maintenance for optimal performance.",
     image: "5.svg",
     detailedInfo: "Keep your website running smoothly with our maintenance service including regular updates, security patches, performance optimization, backup management, and technical support."
   },
   {
     title: "WEBSITE REVAMPS",
-    description: "Refresh and modernize your existing website.",
+    //description: "Refresh and modernize your existing website.",
     image: "6.svg",
     detailedInfo: "Transform your outdated website with modern design trends, improved functionality, enhanced user experience, and better performance while maintaining your brand identity."
   },
   {
     title: "PHOTOGRAPHY",
-    description: "Professional photography services for your digital content.",
+    //description: "Professional photography services for your digital content.",
     image: "7.svg",
     detailedInfo: "High-quality professional photography for your website, social media, and marketing materials. Includes product photography, corporate headshots, and event coverage."
   },
   {
     title: "SEO MANAGEMENT",
-    description: "Search engine optimization to improve your online visibility.",
+    //description: "Search engine optimization to improve your online visibility.",
     image: "8.svg",
     detailedInfo: "Comprehensive SEO services including keyword research, on-page optimization, content strategy, backlink building, and regular performance reporting to improve your search rankings."
   },
   {
     title: "STARTUP",
-    description: "Complete digital setup for new businesses.",
+    //description: "Complete digital setup for new businesses.",
     image: "9.svg",
     detailedInfo: "End-to-end digital setup for startups including branding, website development, social media setup, and initial marketing strategy to help launch your business successfully."
   }
@@ -71,7 +71,7 @@ const ServicesPage = () => {
             <div key={index} className="animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
               <ServiceCard 
                 title={service.title}
-                description={service.description}
+                //description={service.description}
                 image={service.image}
                 detailedInfo={service.detailedInfo}
               />
