@@ -1,7 +1,6 @@
 
-import { Card, CardContent } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { useState } from "react";
-import { RotateCw } from "lucide-react";
 
 interface ServiceCardProps {
   title: string;
@@ -37,7 +36,6 @@ export const ServiceCard = ({ title, image, detailedInfo }: ServiceCardProps) =>
             
             <div className="bg-[#0a1657] text-white text-center p-3 sm:p-4 flex-shrink-0 group-hover:bg-[#0c1d75] transition-colors duration-300">
               <h3 className="font-bold text-lg sm:text-xl">{title}</h3>
-              <RotateCw className="w-5 h-5 mx-auto mt-2 opacity-70" />
             </div>
           </div>
         </Card>
@@ -49,14 +47,13 @@ export const ServiceCard = ({ title, image, detailedInfo }: ServiceCardProps) =>
               <h3 className="font-bold text-xl mb-4">{title}</h3>
               <p className="text-sm flex-grow overflow-y-auto">{detailedInfo}</p>
               <button 
-                className="mt-4 text-sm flex items-center justify-center gap-2 opacity-80 hover:opacity-100"
+                className="mt-4 text-sm text-white opacity-80 hover:opacity-100 self-center"
                 onClick={(e) => {
                   e.stopPropagation();
                   setIsFlipped(false);
                 }}
               >
-                <RotateCw className="w-4 h-4" />
-                Flip back
+                Back to Front
               </button>
             </div>
           </div>
