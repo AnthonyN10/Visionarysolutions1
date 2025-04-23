@@ -11,10 +11,22 @@ interface ServiceCardProps {
 
 export const ServiceCard = ({ title, image, detailedInfo }: ServiceCardProps) => {
   const [isFlipped, setIsFlipped] = useState(false);
+  const [hoverSide, setHoverSide] = useState<'left' | 'right' | null>(null);
   const isMobile = useIsMobile();
 
   const handleFlip = () => {
     setIsFlipped(!isFlipped);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const isLeftSide = x < rect.width / 2;
+    setHoverSide(isLeftSide ? 'left' : 'right');
+  };
+
+  const handleMouseLeave = () => {
+    setHoverSide(null);
   };
 
   // Adjust card height based on device
@@ -22,13 +34,21 @@ export const ServiceCard = ({ title, image, detailedInfo }: ServiceCardProps) =>
 
   return (
     <div 
-      className="relative w-full perspective" 
+      className="relative w-full perspective cursor-pointer" 
       style={{ height: cardHeight }} 
       onClick={handleFlip}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
     >
       <div
         className={`relative w-full h-full transition-all duration-500 preserve-3d ${
           isFlipped ? "rotate-y-180" : ""
+        } ${
+          hoverSide === 'left' 
+            ? '-translate-y-2 -rotate-1' 
+            : hoverSide === 'right' 
+              ? '-translate-y-2 rotate-1' 
+              : ''
         }`}
       >
         {/* Front of card */}
