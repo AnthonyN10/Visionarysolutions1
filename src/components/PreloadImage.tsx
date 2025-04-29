@@ -17,6 +17,15 @@ const PreloadImage = ({
   const [imageLoaded, setImageLoaded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
+  // Convert image path to WebP format
+  const getWebPPath = (imagePath: string): string => {
+    // Extract file name without extension
+    const basePath = imagePath.substring(0, imagePath.lastIndexOf('.')) || imagePath;
+    
+    // Return WebP version if it exists, otherwise return original
+    return `${basePath}.webp`;
+  };
+
   useEffect(() => {
     // Check device
     const checkMobile = () => {
@@ -27,9 +36,10 @@ const PreloadImage = ({
     window.addEventListener('resize', checkMobile);
     
     // Select appropriate image source
-    const imageSrc = isMobile && mobileSrc ? mobileSrc : src;
+    const baseImageSrc = isMobile && mobileSrc ? mobileSrc : src;
+    const webpSrc = getWebPPath(baseImageSrc);
     
-    // Check if image is already loaded in cache
+    // Modern browsers: Try WebP first
     const img = new Image();
     
     // Set loading attribute based on priority
@@ -40,23 +50,34 @@ const PreloadImage = ({
       img.setAttribute('loading', 'lazy');
     }
     
-    img.src = imageSrc;
-    
-    if (img.complete) {
-      // Image is already cached
-      setImageLoaded(true);
-    } else {
-      // Wait for image to load
-      img.onload = () => {
+    img.onerror = () => {
+      // WebP not supported, fallback to original format
+      const fallbackImg = new Image();
+      if (priority) {
+        fallbackImg.setAttribute('loading', 'eager');
+        fallbackImg.setAttribute('fetchpriority', 'high');
+      } else {
+        fallbackImg.setAttribute('loading', 'lazy');
+      }
+      fallbackImg.src = baseImageSrc;
+      
+      fallbackImg.onload = () => {
         setImageLoaded(true);
       };
-    }
+    };
     
-    // Set a fallback timeout to ensure the overlay doesn't stay indefinitely
-    // Use shorter timeout on mobile for better perceived performance
+    img.onload = () => {
+      setImageLoaded(true);
+    };
+    
+    // Try to load WebP first
+    img.src = webpSrc;
+    
+    // Fallback timeout is even shorter for mobile
+    const timeout = isMobile ? 400 : 800;
     const timer = setTimeout(() => {
       setImageLoaded(true);
-    }, isMobile ? 500 : 1000);
+    }, timeout);
     
     return () => {
       clearTimeout(timer);
