@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -104,6 +103,19 @@
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 80px; /* Add padding for fixed header */
+    text-size-adjust: 100%; /* Prevent text size adjustment on orientation change */
+    -webkit-text-size-adjust: 100%;
+  }
+  
+  /* Improve touch interaction on mobile */
+  @media (max-width: 768px) {
+    html {
+      touch-action: manipulation;
+    }
+    
+    a, button, [role="button"] {
+      min-height: 44px; /* Minimum touch target size */
+    }
   }
 }
 
@@ -118,25 +130,23 @@
   position: relative; /* Ensure proper positioning */
 }
 
-/* Animation for image loading - Adjusted for faster fadeout */
+/* Animation for image loading - Optimized for mobile */
 @keyframes fadeOut {
   0% { opacity: 1; }
   100% { opacity: 0; }
 }
 
 .animate-fadeOut {
-  animation: fadeOut 0.6s ease-out forwards;
-  animation-delay: 0.2s; /* Reduced delay for faster appearance */
+  animation: fadeOut 0.4s ease-out forwards;
+  animation-delay: 0.1s; /* Reduced delay for faster appearance on mobile */
 }
 
-/* Add preloading for critical images */
-body::after {
-  position: absolute;
-  width: 0;
-  height: 0;
-  overflow: hidden;
-  z-index: -1;
-  content: url('/BACKROUND.png');
+/* Mobile-optimized animations */
+@media (max-width: 768px) {
+  .animate-fadeOut {
+    animation-duration: 0.3s;
+    animation-delay: 0s;
+  }
 }
 
 /* Ensure buttons are clickable */
@@ -168,7 +178,7 @@ a, button, [role="button"] {
   pointer-events: auto !important;
 }
 
-/* Card flip utilities - improved and fixed */
+/* Card flip utilities - improved and optimized for mobile */
 .perspective {
   perspective: 1000px;
 }
@@ -185,12 +195,28 @@ a, button, [role="button"] {
   transform: rotateY(180deg);
 }
 
-/* Create some animation */
+/* Create some animation - optimized for mobile */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 .animate-fade-in {
-  animation: fadeIn 0.5s ease-out forwards;
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+/* Mobile performance optimizations */
+@media (max-width: 768px) {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  .perspective, .preserve-3d {
+    will-change: auto; /* Reduce default will-change usage on mobile */
+  }
+  
+  /* Simplify animations for better performance */
+  .animate-fade-in {
+    animation-duration: 0.3s;
+  }
 }

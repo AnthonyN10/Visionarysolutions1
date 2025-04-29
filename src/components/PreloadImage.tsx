@@ -1,5 +1,6 @@
 
 import { useState, useEffect } from "react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 type PreloadImageProps = {
   src: string;
@@ -8,10 +9,25 @@ type PreloadImageProps = {
 
 const PreloadImage = ({ src, children }: PreloadImageProps) => {
   const [imageLoaded, setImageLoaded] = useState(false);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
+    if (!src) {
+      setImageLoaded(true);
+      return;
+    }
+    
+    // For mobile, use a shorter timeout to improve perceived performance
+    const timeoutDuration = isMobile ? 300 : 1000;
+    
     // Check if image is already loaded in cache
     const img = new Image();
+    
+    // Set lower priority for background images on mobile
+    if (isMobile) {
+      img.setAttribute('fetchpriority', 'low');
+    }
+    
     img.src = src;
     
     if (img.complete) {
@@ -27,10 +43,10 @@ const PreloadImage = ({ src, children }: PreloadImageProps) => {
     // Set a fallback timeout to ensure the overlay doesn't stay indefinitely
     const timer = setTimeout(() => {
       setImageLoaded(true);
-    }, 1000);
+    }, timeoutDuration);
     
     return () => clearTimeout(timer);
-  }, [src]);
+  }, [src, isMobile]);
 
   return (
     <div className="relative">
