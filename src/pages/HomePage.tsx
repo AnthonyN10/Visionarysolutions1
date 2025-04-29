@@ -1,45 +1,40 @@
 
 import PreloadImage from "@/components/PreloadImage";
 import HeroSection from "@/components/HeroSection";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const HomePage = () => {
+  const isMobile = useIsMobile();
+  
   const scrollToContact = () => {
-    // Add extensive console logs to debug
-    console.log("Scrolling to contact section - function called");
-    
-    // Method 1: Try direct element access
+    // Try direct element access first - most efficient
     const contactSection = document.getElementById('contact');
     if (contactSection) {
-      console.log("Found contact section by ID");
-      contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      contactSection.scrollIntoView({ behavior: isMobile ? 'auto' : 'smooth', block: 'start' });
       return;
     }
     
-    // Method 2: Try querySelector
+    // Fallback methods if the above doesn't work
     const contactSectionAlt = document.querySelector('[id="contact"]');
     if (contactSectionAlt) {
-      console.log("Found contact section by querySelector");
-      (contactSectionAlt as HTMLElement).scrollIntoView({ behavior: 'smooth', block: 'start' });
+      (contactSectionAlt as HTMLElement).scrollIntoView({ behavior: isMobile ? 'auto' : 'smooth', block: 'start' });
       return;
     }
     
-    // Method 3: Try to use window.scrollTo with fixed position
-    // This is a fallback assuming the contact section is roughly 3000px from the top
-    // Which is reasonable based on the console logs we've seen
-    console.log("Using fallback scroll to fixed position");
+    // Use fixed position as last resort - make this faster for mobile
     window.scrollTo({
-      top: 3000, // Approximate position of contact section based on logs
-      behavior: 'smooth'
+      top: 3000, 
+      behavior: isMobile ? 'auto' : 'smooth'
     });
-    
-    // Method 4: Last resort - navigate by hash
-    console.log("Using navigation by hash as final method");
-    window.location.href = "#contact";
   };
 
   return (
     <div className="min-h-screen bg-[#020b43] bg-[url('/BACKROUND.png')] bg-cover bg-center relative">
-      <PreloadImage src="/BACKROUND.png">
+      <PreloadImage 
+        src="/BACKROUND.png" 
+        mobileSrc="/BACKROUND.png" 
+        priority={true}
+      >
         <HeroSection onGetStarted={scrollToContact} />
       </PreloadImage>
     </div>

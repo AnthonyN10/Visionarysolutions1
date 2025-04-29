@@ -1,15 +1,17 @@
 
 import { Button } from "@/components/ui/button";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 type HeroSectionProps = {
   onGetStarted: () => void;
 };
 
 const HeroSection = ({ onGetStarted }: HeroSectionProps) => {
+  const isMobile = useIsMobile();
+
   const handleGetStarted = (e: React.MouseEvent) => {
     e.preventDefault(); // Prevent default behavior
     e.stopPropagation(); // Stop event propagation
-    console.log("Get Started button clicked - handler triggered");
     
     // Call the function directly
     if (typeof onGetStarted === 'function') {
@@ -20,23 +22,26 @@ const HeroSection = ({ onGetStarted }: HeroSectionProps) => {
   };
 
   return (
-    <div className="min-h-[calc(100vh-80px)] flex flex-col relative z-0 pt-20 md:pt-24">
+    <div className="min-h-[calc(100vh-80px)] flex flex-col relative z-0 pt-16 md:pt-24">
       <div className="flex-1 flex flex-col justify-center items-center md:items-end px-4 md:pr-8 lg:pr-24">
         <div className="text-center md:text-right">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight">
             BUILD YOUR<br />ONLINE<br />PRESENCE
           </h1>
           <Button 
             onClick={handleGetStarted}
             type="button"
-            className="bg-white hover:bg-white/90 text-[#020b43] font-bold rounded-full px-6 py-5 text-base md:px-8 md:py-6 md:text-lg cursor-pointer z-[100] relative"
+            className={`bg-white hover:bg-white/90 text-[#020b43] font-bold rounded-full ${
+              isMobile ? 'px-6 py-4 text-sm' : 'px-6 py-5 text-base md:px-8 md:py-6 md:text-lg'
+            } cursor-pointer z-[100] relative touch-manipulation`}
+            aria-label="Get started"
           >
             GET STARTED
           </Button>
         </div>
       </div>
       
-      <div className="py-6 text-center">
+      <div className="py-4 md:py-6 text-center">
         <h2 className="text-white text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold px-4">
           YOUR VISION WITH OUR SOLUTIONS
         </h2>
