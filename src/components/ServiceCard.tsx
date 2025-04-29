@@ -32,13 +32,6 @@ export const ServiceCard = ({ title, image, detailedInfo }: ServiceCardProps) =>
     setHoverSide(null);
   };
 
-  // Get WebP version of the image if available
-  const getImageSrc = (imgPath: string) => {
-    // Extract file name without extension
-    const basePath = imgPath.substring(0, imgPath.lastIndexOf('.')) || imgPath;
-    return `${basePath}.webp`;
-  };
-
   // Adjust card height based on device
   const cardHeight = isMobile ? "250px" : "350px";
   
@@ -68,17 +61,14 @@ export const ServiceCard = ({ title, image, detailedInfo }: ServiceCardProps) =>
           <div className="flex flex-col h-full">
             <div className="bg-white p-4 sm:p-6 flex-grow flex justify-center items-center">
               <div className={`${isMobile ? 'max-w-[100px]' : 'max-w-[150px]'} max-h-[150px] mx-auto`}>
-                <picture>
-                  <source srcSet={getImageSrc(image)} type="image/webp" />
-                  <img 
-                    src={image} 
-                    alt={title} 
-                    className="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-110" 
-                    loading="lazy"
-                    width="150"
-                    height="150"
-                  />
-                </picture>
+                <img 
+                  src={image} 
+                  alt={title} 
+                  className="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-110" 
+                  loading="lazy"
+                  width="150"
+                  height="150"
+                />
               </div>
             </div>
             

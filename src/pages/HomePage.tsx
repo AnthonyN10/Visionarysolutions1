@@ -28,15 +28,11 @@ const HomePage = () => {
     });
   };
 
-  // Define both standard and WebP sources
-  const backgroundPath = "/BACKROUND";
-  const mobileBackground = isMobile ? `${backgroundPath}-mobile` : backgroundPath;
-
   return (
-    <div className="min-h-screen bg-[#020b43] bg-[url('/BACKROUND.webp')] bg-cover bg-center relative">
+    <div className="min-h-screen bg-[#020b43] bg-[url('/BACKROUND.png')] bg-cover bg-center relative">
       <PreloadImage 
-        src={`${backgroundPath}.png`} 
-        mobileSrc={`${mobileBackground}.png`} 
+        src="/BACKROUND.png" 
+        mobileSrc="/BACKROUND.png" 
         priority={true}
       >
         <HeroSection onGetStarted={scrollToContact} />
