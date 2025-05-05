@@ -2,9 +2,20 @@
 import PreloadImage from "@/components/PreloadImage";
 import HeroSection from "@/components/HeroSection";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { useEffect, useState } from "react";
 
 const HomePage = () => {
   const isMobile = useIsMobile();
+  const [isVisible, setIsVisible] = useState(false);
+  
+  useEffect(() => {
+    // Delay setting visibility for a smooth entry animation
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 300);
+    
+    return () => clearTimeout(timer);
+  }, []);
   
   const scrollToContact = () => {
     // Try direct element access first - most efficient
@@ -29,7 +40,7 @@ const HomePage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#020b43] bg-[url('/BACKROUND.png')] bg-cover bg-center relative">
+    <div className={`min-h-screen bg-[#020b43] bg-[url('/BACKROUND.png')] bg-cover bg-center relative transition-opacity duration-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
       <PreloadImage 
         src="/BACKROUND.png" 
         mobileSrc="/BACKROUND.png" 
