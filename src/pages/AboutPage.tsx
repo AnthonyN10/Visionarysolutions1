@@ -17,9 +17,9 @@ const AboutPage = () => {
       <div className="container mx-auto px-4">
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0a1657] mb-8 md:mb-12 text-center">ABOUT US</h1>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="animate-fade-in" style={{ animationDelay: '0.1s' }}>
-            <Card className="shadow-lg border-none hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+        <div className="flex flex-col md:flex-row gap-6">
+          <div className="flex-1 animate-fade-in" style={{ animationDelay: '0.1s' }}>
+            <Card className="h-full shadow-lg border-none hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
               <CardContent className="p-6">
                 <h2 className="text-2xl font-bold text-[#0a1657] mb-4">OUR MISSION</h2>
                 <p className="text-gray-700">
@@ -30,8 +30,8 @@ const AboutPage = () => {
             </Card>
           </div>
           
-          <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            <Card className="shadow-lg border-none hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+          <div className="flex-1 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            <Card className="h-full shadow-lg border-none hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
               <CardContent className="p-6">
                 <h2 className="text-2xl font-bold text-[#0a1657] mb-4">OUR APPROACH</h2>
                 <p className="text-gray-700">
@@ -42,16 +42,16 @@ const AboutPage = () => {
             </Card>
           </div>
           
-          <div className="md:col-span-2 animate-fade-in" style={{ animationDelay: '0.3s' }}>
-            <Card className="shadow-lg border-none hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-              <CardContent className="p-6 text-center">
+          <div className="flex-1 animate-fade-in" style={{ animationDelay: '0.3s' }}>
+            <Card className="h-full shadow-lg border-none hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+              <CardContent className="p-6">
                 <h2 className="text-2xl font-bold text-[#0a1657] mb-4">WHY CHOOSE US</h2>
-                <ul className="list-disc inline-block text-left text-gray-700 space-y-2">
-                  <li>Expert team with years of experience in web development</li>
-                  <li>Personalized solutions tailored to your specific requirements</li>
-                  <li>Commitment to quality and attention to detail</li>
-                  <li>Ongoing support and maintenance services</li>
-                  <li>Affordable pricing with transparent quotes</li>
+                <ul className="list-disc pl-5 text-left text-gray-700 space-y-2">
+                  <li>Expert team with years of experience</li>
+                  <li>Personalized solutions tailored to you</li>
+                  <li>Commitment to quality and detail</li>
+                  <li>Ongoing support and maintenance</li>
+                  <li>Affordable pricing with transparency</li>
                 </ul>
               </CardContent>
             </Card>
