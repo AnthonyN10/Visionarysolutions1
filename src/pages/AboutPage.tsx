@@ -1,3 +1,4 @@
+
 import { Card, CardContent } from "@/components/ui/card";
 import { useEffect } from "react";
 const AboutPage = () => {
@@ -8,7 +9,7 @@ const AboutPage = () => {
     };
     preloadImages();
   }, []);
-  return <div className="min-h-screen bg-white pt-24 md:pt-28 py-[79px]">
+  return <div className="min-h-screen bg-white pt-24 md:pt-28 pb-12">
       <div className="container mx-auto px-4">
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0a1657] mb-8 md:mb-12 text-center">ABOUT US</h1>
         
