@@ -1,4 +1,3 @@
-
 import { ServiceCard } from "@/components/ServiceCard";
 
 const services = [
@@ -49,7 +48,7 @@ const ServicesPage = () => {
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0a1657]">
             OUR SERVICES
           </h1>
-          <div className="absolute h-[3px] bg-[#0a1657] left-1/2 bottom-[-8px] transform -translate-x-1/2 animate-underline"></div>
+          <div className="w-0 h-[3px] bg-[#0a1657] mx-auto mt-2 animate-underline"></div>
         </div>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-14 lg:gap-16">
