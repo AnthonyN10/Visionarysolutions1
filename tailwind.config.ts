@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -114,10 +115,9 @@ export default {
 					}
 				},
 				'underline-move': {
-					'0%': { width: '0%', left: '0%', right: 'auto' },
-					'50%': { width: '100%', left: '0%', right: 'auto' },
-					'50.1%': { width: '100%', left: 'auto', right: '0%' },
-					'100%': { width: '0%', left: 'auto', right: '0%' }
+					'0%': { width: '0%', left: '50%', transform: 'translateX(-50%)' },
+					'50%': { width: '120%', left: '50%', transform: 'translateX(-50%)' },
+					'100%': { width: '0%', left: '50%', transform: 'translateX(-50%)' }
 				}
 			},
 			animation: {
