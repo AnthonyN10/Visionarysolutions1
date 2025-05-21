@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -113,6 +112,12 @@ export default {
 					'50%': {
 						opacity: '0.8'
 					}
+				},
+				'underline-move': {
+					'0%': { width: '0%', left: '0%', right: 'auto' },
+					'50%': { width: '100%', left: '0%', right: 'auto' },
+					'50.1%': { width: '100%', left: 'auto', right: '0%' },
+					'100%': { width: '0%', left: 'auto', right: '0%' }
 				}
 			},
 			animation: {
@@ -120,7 +125,8 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.5s ease-out forwards',
 				'fade-in-right': 'fade-in-right 0.7s ease-out forwards',
-				'pulse-subtle': 'pulse-subtle 3s ease-in-out infinite'
+				'pulse-subtle': 'pulse-subtle 3s ease-in-out infinite',
+				'underline': 'underline-move 3s ease-in-out infinite'
 			}
 		}
 	},
