@@ -76,14 +76,20 @@ const ContactPage = () => {
   return (
     <div className="min-h-screen bg-white py-16 pt-24 md:pt-28">
       <div className="container mx-auto px-4 max-w-3xl">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0a1657] text-center mb-6 md:mb-10">
-          CONTACT US
-        </h1>
+        <div className="text-center mb-6 md:mb-10 relative">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0a1657] mb-2">
+            CONTACT US
+          </h1>
+          <div className="h-[3px] bg-[#0a1657] mx-auto animate-underline"></div>
+        </div>
         
         <div className="bg-[#e6eeff] rounded-lg p-4 sm:p-6 md:p-8">
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#0a1657] text-center mb-6 md:mb-8">
-            REQUEST A QUOTE
-          </h2>
+          <div className="text-center mb-6 md:mb-8">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#0a1657] mb-2">
+              REQUEST A QUOTE
+            </h2>
+            <div className="h-[3px] bg-[#0a1657] mx-auto w-32 animate-underline"></div>
+          </div>
           
           <div className="border-t border-[#0a1657]/20 mb-6 md:mb-8 mt-4"></div>
           
