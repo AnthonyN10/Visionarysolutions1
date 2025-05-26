@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
@@ -9,20 +8,24 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Textarea } from "@/components/ui/textarea";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { toast } from "@/hooks/use-toast";
-
 const formSchema = z.object({
-  firstName: z.string().min(2, { message: "First name is required" }),
-  lastName: z.string().min(2, { message: "Last name is required" }),
-  email: z.string().email({ message: "Invalid email address" }),
-  websiteType: z.string().min(1, { message: "Please select a website type" }),
-  information: z.string().optional(),
+  firstName: z.string().min(2, {
+    message: "First name is required"
+  }),
+  lastName: z.string().min(2, {
+    message: "Last name is required"
+  }),
+  email: z.string().email({
+    message: "Invalid email address"
+  }),
+  websiteType: z.string().min(1, {
+    message: "Please select a website type"
+  }),
+  information: z.string().optional()
 });
-
 type FormValues = z.infer<typeof formSchema>;
-
 const ContactPage = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
-
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -30,13 +33,11 @@ const ContactPage = () => {
       lastName: "",
       email: "",
       websiteType: "",
-      information: "",
-    },
+      information: ""
+    }
   });
-
   const onSubmit = async (data: FormValues) => {
     setIsSubmitting(true);
-    
     try {
       // Send email using a simple form submission to formsubmit.co service
       const formData = new FormData();
@@ -45,42 +46,36 @@ const ContactPage = () => {
       formData.append("email", data.email);
       formData.append("websiteType", data.websiteType);
       formData.append("information", data.information || "");
-      
       const response = await fetch("https://formsubmit.co/info@visionarysolutions.co.za", {
         method: "POST",
-        body: formData,
+        body: formData
       });
-      
       if (!response.ok) {
         throw new Error("Form submission failed");
       }
-      
       toast({
         title: "Quote request submitted!",
-        description: "We'll get back to you as soon as possible.",
+        description: "We'll get back to you as soon as possible."
       });
-      
       form.reset();
     } catch (error) {
       console.error("Error submitting form:", error);
       toast({
         title: "Submission failed",
         description: "There was an error sending your request. Please try again later.",
-        variant: "destructive",
+        variant: "destructive"
       });
     } finally {
       setIsSubmitting(false);
     }
   };
-
-  return (
-    <div className="min-h-screen bg-white py-16 pt-24 md:pt-28">
+  return <div className="min-h-screen bg-white py-16 pt-24 md:pt-28">
       <div className="container mx-auto px-4 max-w-3xl">
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0a1657] text-center mb-6 md:mb-10">
           CONTACT US
         </h1>
         
-        <div className="bg-[#e6eeff] rounded-lg p-4 sm:p-6 md:p-8">
+        <div className="rounded-lg p-4 sm:p-6 md:p-8 bg-[#c9deff]">
           <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#0a1657] text-center mb-6 md:mb-8">
             REQUEST A QUOTE
           </h2>
@@ -90,11 +85,9 @@ const ContactPage = () => {
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 md:space-y-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-                <FormField
-                  control={form.control}
-                  name="firstName"
-                  render={({ field }) => (
-                    <FormItem>
+                <FormField control={form.control} name="firstName" render={({
+                field
+              }) => <FormItem>
                       <FormLabel className="text-[#0a1657] font-medium">
                         FIRST NAME <span className="text-red-500">*</span>
                       </FormLabel>
@@ -102,15 +95,11 @@ const ContactPage = () => {
                         <Input placeholder="First name" {...field} />
                       </FormControl>
                       <FormMessage />
-                    </FormItem>
-                  )}
-                />
+                    </FormItem>} />
                 
-                <FormField
-                  control={form.control}
-                  name="lastName"
-                  render={({ field }) => (
-                    <FormItem>
+                <FormField control={form.control} name="lastName" render={({
+                field
+              }) => <FormItem>
                       <FormLabel className="text-[#0a1657] font-medium">
                         LAST NAME <span className="text-red-500">*</span>
                       </FormLabel>
@@ -118,16 +107,12 @@ const ContactPage = () => {
                         <Input placeholder="Last name" {...field} />
                       </FormControl>
                       <FormMessage />
-                    </FormItem>
-                  )}
-                />
+                    </FormItem>} />
               </div>
               
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
+              <FormField control={form.control} name="email" render={({
+              field
+            }) => <FormItem>
                     <FormLabel className="text-[#0a1657] font-medium">
                       EMAIL <span className="text-red-500">*</span>
                     </FormLabel>
@@ -135,15 +120,11 @@ const ContactPage = () => {
                       <Input type="email" placeholder="example@example.com" {...field} />
                     </FormControl>
                     <FormMessage />
-                  </FormItem>
-                )}
-              />
+                  </FormItem>} />
               
-              <FormField
-                control={form.control}
-                name="websiteType"
-                render={({ field }) => (
-                  <FormItem>
+              <FormField control={form.control} name="websiteType" render={({
+              field
+            }) => <FormItem>
                     <FormLabel className="text-[#0a1657] font-medium">
                       TYPE OF WEBSITE <span className="text-red-500">*</span>
                     </FormLabel>
@@ -162,36 +143,22 @@ const ContactPage = () => {
                       </SelectContent>
                     </Select>
                     <FormMessage />
-                  </FormItem>
-                )}
-              />
+                  </FormItem>} />
               
-              <FormField
-                control={form.control}
-                name="information"
-                render={({ field }) => (
-                  <FormItem>
+              <FormField control={form.control} name="information" render={({
+              field
+            }) => <FormItem>
                     <FormLabel className="text-[#0a1657] font-medium">
                       MORE INFORMATION ABOUT THE WEBSITE OR SERVICE REQUESTED
                     </FormLabel>
                     <FormControl>
-                      <Textarea 
-                        placeholder="Tell us more about your project..." 
-                        className="min-h-[150px]"
-                        {...field} 
-                      />
+                      <Textarea placeholder="Tell us more about your project..." className="min-h-[150px]" {...field} />
                     </FormControl>
                     <FormMessage />
-                  </FormItem>
-                )}
-              />
+                  </FormItem>} />
               
               <div className="border-t border-[#0a1657]/20 pt-6 flex justify-center">
-                <Button 
-                  type="submit" 
-                  disabled={isSubmitting}
-                  className="bg-[#0a1657] hover:bg-[#0a1657]/90 text-white font-bold py-2 px-6 sm:px-8 rounded-full"
-                >
+                <Button type="submit" disabled={isSubmitting} className="bg-[#0a1657] hover:bg-[#0a1657]/90 text-white font-bold py-2 px-6 sm:px-8 rounded-full">
                   {isSubmitting ? "Submitting..." : "SUBMIT"}
                 </Button>
               </div>
@@ -199,8 +166,6 @@ const ContactPage = () => {
           </Form>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default ContactPage;
