@@ -37,7 +37,7 @@ const services = [{
   detailedInfo: "End-to-end digital setup for startups including branding, website development, social media setup, and initial marketing strategy to help launch your business successfully."
 }];
 const ServicesPage = () => {
-  return <div className="min-h-screen bg-white pt-12 md:pt-16 py-[16px]">
+  return <div className="min-h-screen bg-white pt-12 md:pt-16 py-[30px]">
       <div className="container mx-auto px-4">
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0a1657] text-center mb-8 md:mb-12">
           OUR SERVICES
