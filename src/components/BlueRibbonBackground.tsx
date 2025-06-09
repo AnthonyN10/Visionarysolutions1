@@ -1,4 +1,3 @@
-
 import { useRef, useMemo } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Vector3, CatmullRomCurve3, TubeGeometry, Color } from 'three';
@@ -139,7 +138,7 @@ const MultipleRibbons = () => {
 
 const BlueRibbonBackground = () => {
   return (
-    <div className="fixed inset-0 w-full h-full" style={{ zIndex: -1 }}>
+    <div className="fixed inset-0 w-full h-full" style={{ zIndex: 5 }}>
       <Canvas
         camera={{ position: [0, 0, 8], fov: 75 }}
         style={{ background: 'radial-gradient(circle, #001122 0%, #000000 100%)' }}
