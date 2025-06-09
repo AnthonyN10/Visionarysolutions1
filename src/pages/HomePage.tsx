@@ -1,6 +1,7 @@
 
 import PreloadImage from "@/components/PreloadImage";
 import HeroSection from "@/components/HeroSection";
+import BlueRibbonBackground from "@/components/BlueRibbonBackground";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useEffect, useState } from "react";
 
@@ -40,14 +41,11 @@ const HomePage = () => {
   };
 
   return (
-    <div className={`min-h-screen bg-[#020b43] bg-[url('/BACKROUND.png')] bg-cover bg-center relative transition-opacity duration-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-      <PreloadImage 
-        src="/BACKROUND.png" 
-        mobileSrc="/BACKROUND.png" 
-        priority={true}
-      >
+    <div className={`min-h-screen relative transition-opacity duration-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+      <BlueRibbonBackground />
+      <div className="relative z-10">
         <HeroSection onGetStarted={scrollToContact} />
-      </PreloadImage>
+      </div>
     </div>
   );
 };
