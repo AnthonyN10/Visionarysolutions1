@@ -6,7 +6,6 @@ import * as THREE from 'three';
 
 const RibbonMesh = () => {
   const meshRef = useRef<THREE.Mesh>(null);
-  const materialRef = useRef<THREE.ShaderMaterial>(null);
   const { mouse, viewport } = useThree();
 
   // Create the ribbon curve
