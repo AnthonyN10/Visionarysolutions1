@@ -102,10 +102,13 @@ const RibbonMesh = () => {
   }, []);
 
   useFrame((state) => {
-    if (materialRef.current) {
-      materialRef.current.uniforms.time.value = state.clock.elapsedTime;
-      materialRef.current.uniforms.mouseX.value = mouse.x * 0.5;
-      materialRef.current.uniforms.mouseY.value = mouse.y * 0.5;
+    if (meshRef.current && meshRef.current.material) {
+      const material = meshRef.current.material as THREE.ShaderMaterial;
+      if (material.uniforms) {
+        material.uniforms.time.value = state.clock.elapsedTime;
+        material.uniforms.mouseX.value = mouse.x * 0.5;
+        material.uniforms.mouseY.value = mouse.y * 0.5;
+      }
     }
     
     if (meshRef.current) {
@@ -116,7 +119,7 @@ const RibbonMesh = () => {
   });
 
   return (
-    <mesh ref={meshRef} geometry={geometry} material={shaderMaterial} ref={materialRef}>
+    <mesh ref={meshRef} geometry={geometry} material={shaderMaterial}>
     </mesh>
   );
 };
