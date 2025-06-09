@@ -1,5 +1,4 @@
 
-import PreloadImage from "@/components/PreloadImage";
 import HeroSection from "@/components/HeroSection";
 import ThreeBackground from "@/components/ThreeBackground";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -42,24 +41,12 @@ const HomePage = () => {
 
   return (
     <div className={`min-h-screen bg-[#020b43] relative transition-opacity duration-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-      {/* Static background image - lowest layer */}
-      <div 
-        className="absolute inset-0 bg-[url('/BACKROUND.png')] bg-cover bg-center"
-        style={{ zIndex: 0 }}
-      />
-      
-      {/* 3D WebGL background - middle layer */}
+      {/* Only the new shader-based 3D background */}
       <ThreeBackground />
       
       {/* Content - top layer */}
       <div className="relative z-20">
-        <PreloadImage 
-          src="/BACKROUND.png" 
-          mobileSrc="/BACKROUND.png" 
-          priority={true}
-        >
-          <HeroSection onGetStarted={scrollToContact} />
-        </PreloadImage>
+        <HeroSection onGetStarted={scrollToContact} />
       </div>
     </div>
   );
