@@ -11,12 +11,12 @@ const AnimatedParticles = () => {
   const { mouse, viewport } = useThree();
   
   const particlesPosition = useMemo(() => {
-    const positions = new Float32Array(2000 * 3);
+    const positions = new Float32Array(5000 * 3);
     
-    for (let i = 0; i < 2000; i++) {
-      positions[i * 3] = (Math.random() - 0.5) * 20;
-      positions[i * 3 + 1] = (Math.random() - 0.5) * 20;
-      positions[i * 3 + 2] = (Math.random() - 0.5) * 20;
+    for (let i = 0; i < 5000; i++) {
+      positions[i * 3] = (Math.random() - 0.5) * 10;
+      positions[i * 3 + 1] = (Math.random() - 0.5) * 10;
+      positions[i * 3 + 2] = (Math.random() - 0.5) * 10;
     }
     
     return positions;
@@ -39,7 +39,7 @@ const AnimatedParticles = () => {
         <PointMaterial
           transparent
           color="#c9deff"
-          size={0.005}
+          size={0.01}
           sizeAttenuation={true}
           depthWrite={false}
         />
@@ -65,15 +65,40 @@ const FloatingGeometry = () => {
   });
 
   return (
-    <mesh ref={meshRef} position={[0, 0, -5]}>
-      <torusGeometry args={[1, 0.3, 16, 100]} />
+    <mesh ref={meshRef} position={[0, 0, -2]}>
+      <torusGeometry args={[1.5, 0.4, 16, 100]} />
       <meshPhongMaterial 
+        color="#0a1657"
         transparent 
-        opacity={0.3}
+        opacity={0.6}
         wireframe={true}
-      >
-        <primitive object={new THREE.Color("#0a1657")} attach="color" />
-      </meshPhongMaterial>
+      />
+    </mesh>
+  );
+};
+
+// Additional floating sphere
+const FloatingSphere = () => {
+  const meshRef = useRef<THREE.Mesh>(null);
+  
+  useFrame((state, delta) => {
+    if (meshRef.current) {
+      meshRef.current.rotation.x += delta * 0.1;
+      meshRef.current.rotation.y += delta * 0.2;
+      meshRef.current.position.x = Math.sin(state.clock.elapsedTime * 0.3) * 3;
+      meshRef.current.position.y = Math.cos(state.clock.elapsedTime * 0.4) * 2;
+    }
+  });
+
+  return (
+    <mesh ref={meshRef} position={[3, 1, -4]}>
+      <sphereGeometry args={[0.8, 32, 32]} />
+      <meshPhongMaterial 
+        color="#c9deff"
+        transparent 
+        opacity={0.4}
+        wireframe={false}
+      />
     </mesh>
   );
 };
@@ -91,14 +116,14 @@ const Lighting = () => {
 
   return (
     <>
-      <ambientLight intensity={0.4} color="#c9deff" />
+      <ambientLight intensity={0.6} color="#c9deff" />
       <directionalLight
         ref={lightRef}
         position={[2, 2, 5]}
-        intensity={0.8}
+        intensity={1.2}
         color="#ffffff"
       />
-      <pointLight position={[-10, -10, -10]} intensity={0.5} color="#0a1657" />
+      <pointLight position={[-10, -10, -10]} intensity={0.8} color="#0a1657" />
     </>
   );
 };
@@ -121,6 +146,7 @@ const ThreeBackground = () => {
           <Lighting />
           <AnimatedParticles />
           <FloatingGeometry />
+          <FloatingSphere />
         </Suspense>
       </Canvas>
     </div>
