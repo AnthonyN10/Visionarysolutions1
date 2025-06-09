@@ -2,7 +2,7 @@
 import { Canvas } from '@react-three/fiber';
 import { Suspense, useRef, useMemo } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
-import { Points, PointMaterial, Sphere } from '@react-three/drei';
+import { Points, PointMaterial } from '@react-three/drei';
 import * as THREE from 'three';
 
 // Animated particles component
@@ -68,11 +68,12 @@ const FloatingGeometry = () => {
     <mesh ref={meshRef} position={[0, 0, -5]}>
       <torusGeometry args={[1, 0.3, 16, 100]} />
       <meshPhongMaterial 
-        color="#0a1657" 
         transparent 
         opacity={0.3}
         wireframe={true}
-      />
+      >
+        <primitive object={new THREE.Color("#0a1657")} attach="color" />
+      </meshPhongMaterial>
     </mesh>
   );
 };
