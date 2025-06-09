@@ -1,6 +1,7 @@
 
 import PreloadImage from "@/components/PreloadImage";
 import HeroSection from "@/components/HeroSection";
+import ThreeBackground from "@/components/ThreeBackground";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useEffect, useState } from "react";
 
@@ -41,6 +42,7 @@ const HomePage = () => {
 
   return (
     <div className={`min-h-screen bg-[#020b43] bg-[url('/BACKROUND.png')] bg-cover bg-center relative transition-opacity duration-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+      <ThreeBackground />
       <PreloadImage 
         src="/BACKROUND.png" 
         mobileSrc="/BACKROUND.png" 
