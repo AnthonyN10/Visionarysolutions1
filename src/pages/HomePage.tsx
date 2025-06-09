@@ -41,15 +41,26 @@ const HomePage = () => {
   };
 
   return (
-    <div className={`min-h-screen bg-[#020b43] bg-[url('/BACKROUND.png')] bg-cover bg-center relative transition-opacity duration-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+    <div className={`min-h-screen bg-[#020b43] relative transition-opacity duration-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+      {/* Static background image - lowest layer */}
+      <div 
+        className="absolute inset-0 bg-[url('/BACKROUND.png')] bg-cover bg-center"
+        style={{ zIndex: 0 }}
+      />
+      
+      {/* 3D WebGL background - middle layer */}
       <ThreeBackground />
-      <PreloadImage 
-        src="/BACKROUND.png" 
-        mobileSrc="/BACKROUND.png" 
-        priority={true}
-      >
-        <HeroSection onGetStarted={scrollToContact} />
-      </PreloadImage>
+      
+      {/* Content - top layer */}
+      <div className="relative z-20">
+        <PreloadImage 
+          src="/BACKROUND.png" 
+          mobileSrc="/BACKROUND.png" 
+          priority={true}
+        >
+          <HeroSection onGetStarted={scrollToContact} />
+        </PreloadImage>
+      </div>
     </div>
   );
 };

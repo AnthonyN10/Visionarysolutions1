@@ -130,7 +130,7 @@ const Lighting = () => {
 
 const ThreeBackground = () => {
   return (
-    <div className="absolute inset-0 -z-10">
+    <div className="absolute inset-0 z-10 pointer-events-none">
       <Canvas
         camera={{
           position: [0, 0, 5],
