@@ -1,3 +1,4 @@
+
 import { ServiceCard } from "@/components/ServiceCard";
 const services = [{
   title: "PROFILE CREATION",
@@ -44,11 +45,15 @@ const ServicesPage = () => {
         </h1>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-14 lg:gap-16">
-          {services.map((service, index) => <div key={index} className="animate-fade-in mb-6" style={{
-          animationDelay: `${index * 0.1}s`
-        }}>
+          {services.map((service, index) => (
+            <div
+              key={index}
+              className="mb-6 animate-slide-in-right"
+              style={{ animationDelay: `${index * 0.12}s` }}
+            >
               <ServiceCard title={service.title} image={service.image} detailedInfo={service.detailedInfo} />
-            </div>)}
+            </div>
+          ))}
         </div>
       </div>
     </div>;
