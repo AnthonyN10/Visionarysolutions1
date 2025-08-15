@@ -59,7 +59,7 @@ export const ServiceCard = ({ title, image, detailedInfo }: ServiceCardProps) =>
         {/* Front of card */}
         <Card className="absolute inset-0 w-full h-full backface-hidden border-none shadow-lg group transition-all duration-300 hover:shadow-2xl flex flex-col">
           <div className="flex flex-col h-full">
-            <div className="bg-white p-4 sm:p-6 flex-grow flex justify-center items-center">
+            <div className="bg-white p-4 sm:p-6 flex-grow flex flex-col justify-center items-center">
               <div className={`${isMobile ? 'max-w-[100px]' : 'max-w-[150px]'} max-h-[150px] mx-auto`}>
                 <img 
                   src={image} 
@@ -70,6 +70,9 @@ export const ServiceCard = ({ title, image, detailedInfo }: ServiceCardProps) =>
                   height="150"
                 />
               </div>
+              {isMobile && (
+                <p className="text-gray-400 text-xs mt-2 text-center">Read More</p>
+              )}
             </div>
             
             <div className="bg-[#0a1657] text-white text-center p-4 flex-shrink-0 group-hover:bg-[#0c1d75] transition-colors duration-300">
