@@ -39,24 +39,41 @@ const ContactPage = () => {
   const onSubmit = async (data: FormValues) => {
     setIsSubmitting(true);
     try {
-      // Send email using a simple form submission to formsubmit.co service
-      const formData = new FormData();
-      formData.append("firstName", data.firstName);
-      formData.append("lastName", data.lastName);
-      formData.append("email", data.email);
-      formData.append("websiteType", data.websiteType);
-      formData.append("information", data.information || "");
-      const response = await fetch("https://formsubmit.co/info@visionarysolutions.co.za", {
-        method: "POST",
-        body: formData
+      // Create a proper form submission to formsubmit.co
+      const submitForm = document.createElement('form');
+      submitForm.action = 'https://formsubmit.co/info@visionarysolutions.co.za';
+      submitForm.method = 'POST';
+      submitForm.style.display = 'none';
+      
+      // Add form data as hidden inputs
+      const fields = [
+        { name: 'name', value: `${data.firstName} ${data.lastName}` },
+        { name: 'email', value: data.email },
+        { name: 'websiteType', value: data.websiteType },
+        { name: 'message', value: data.information || 'No additional information provided' },
+        { name: '_subject', value: 'New Quote Request from Visionary Solutions Website' },
+        { name: '_captcha', value: 'false' },
+        { name: '_template', value: 'table' }
+      ];
+      
+      fields.forEach(field => {
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = field.name;
+        input.value = field.value;
+        submitForm.appendChild(input);
       });
-      if (!response.ok) {
-        throw new Error("Form submission failed");
-      }
+      
+      document.body.appendChild(submitForm);
+      submitForm.submit();
+      document.body.removeChild(submitForm);
+      
       toast({
         title: "Quote request submitted!",
         description: "We'll get back to you as soon as possible."
       });
+      
+      // Reset the React Hook Form after successful submission
       form.reset();
     } catch (error) {
       console.error("Error submitting form:", error);
